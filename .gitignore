@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Virtual environment
+.venv/
+venv/
+
+# Environment variables
+.env
+
+# IDE
+.vscode/
+
+# Local data
+data/raw/*
+data/processed/*
+
+# Keep folders in Git
+!data/raw/.gitkeep
+!data/processed/.gitkeep
