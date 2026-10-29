@@ -21,11 +21,17 @@ def format_validation(data_frame):
     else:
         return f"Non numeric columns: {non_numeric_columns}"
     
-def range_validation(data_frame,min_value,max_value):
-    out_of_range = (data_frame > max_value) | (data_frame < min_value)
+
+def range_validation(data_frame, min_value, max_value):
+    numeric_data = data_frame.select_dtypes(include="number")
+
+    out_of_range = (
+        (numeric_data > max_value) |
+        (numeric_data < min_value)
+    )
 
     if out_of_range.any().any():
-        return "Values outside of allowed range were found."
+        return "Values outside of the allowed range were found."
     else:
         return "All values are within the allowed range."
 
